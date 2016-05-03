@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+
+		{{!--head details--}} 
+		{{> templates/layout/common/style}} 
+		{{#block "head"}}{{/block}}
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="container" id="main">
+				{{#block "header"}}{{/block}}
+				{{#block "body"}}{{/block}}
+			</div>
+	
+		</div>
+	
+		{{> templates/layout/common/script}} 
+	</body>
+</html>

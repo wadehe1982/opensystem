@@ -1,0 +1,17 @@
+{{#partial "content"}}
+
+<div>
+<input type="button" value="submit1" id="b1"><br><br>
+<input type="button" value="submit2" id="b2"><br><br>
+<span id='s'></span>
+</div>
+
+{{/partial}}
+
+{{#partial "jsEntry"}}
+    <script src="js/lib/require-2.2.0.js" data-main="js/main">
+    </script>
+    
+{{/partial}}
+
+{{> templates/simpleLayout}}

@@ -1,0 +1,27 @@
+<div >
+  {{#if flag}}
+  <div>
+   <h1>hello: {{name}}</h1>
+  </div>
+  {{else}}
+  <div>
+   <h1>xxxx: {{name}}</h1>
+  </div>
+  {{/if}}
+  
+  {{#unless flag}}
+  <div>
+  <h2>{{name}}</h2>
+  </div>
+  {{/unless}}
+  
+  <ul>
+  {{#each user}}
+  <li>{{@index}}--{{@key}}--{{this.userName}}--{{this.password}}: {{#with address}}
+  {{zipcoede}}
+  {{/with}}</li>
+  {{else}}
+  <li><p>no content</p></li>
+  {{/each}}
+ </ul>
+</div>
