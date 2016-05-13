@@ -39,7 +39,7 @@ public class UserController {
 		return dto;
 	}
 
-	@RequestMapping(value="save", method=RequestMethod.POST, headers="Accept=application/json")
+	@RequestMapping(value = "save", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody()
 	public UserDTO save(@RequestBody UserDTO userDTO) {
 		UserDTO dto = userService.save(userDTO);
@@ -49,6 +49,13 @@ public class UserController {
 	@RequestMapping("new")
 	public String createUser() {
 		return "newUser";
+	}
+
+	@RequestMapping("list")
+	@ResponseBody
+	public List<UserDTO> getAll() {
+		List<UserDTO> users = userService.getAllUsers();
+		return users;
 	}
 
 }
