@@ -32,14 +32,14 @@ public class Address {
 	private String address2;
 	
 	@Column(name="zipcode")
-	private String zipcoede;
+	private String zipcode;
 	
 	public AddressDTO toDto(){
 		AddressDTO addressDTO = new AddressDTO();
 		addressDTO.setAddress1(this.address1);
 		addressDTO.setAddress2(this.address2);
 		addressDTO.setAddressId(this.addressId);
-		addressDTO.setZipcoede(this.zipcoede);
+		addressDTO.setZipcoede(this.zipcode);
 		return addressDTO;
 	}
 }

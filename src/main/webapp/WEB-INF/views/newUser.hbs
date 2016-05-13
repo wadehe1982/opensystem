@@ -1,0 +1,22 @@
+{{#partial "content"}} userName:
+<input type="text" id="username" />
+<br />
+password:
+<input type="password" id="password" />
+<br />
+address1:
+<input type="text" id="a1" />
+<br />
+address2:
+<input type="text" id="a2" />
+<br />
+zipcode:
+<input type="text" id="zipcode" />
+<br />
+<input type="button" value="Submit" id="b" />
+{{/partial}} {{#partial "jsEntry"}}
+<script src="/resources/js/lib/require-2.2.0.js">
+	
+</script>
+<script src="/resources/js/newuser.js"></script>
+{{/partial}} {{> templates/simpleLayout}}

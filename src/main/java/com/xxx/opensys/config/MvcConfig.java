@@ -38,11 +38,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/html/*.js").addResourceLocations("/WEB-INF/resources/html/");// 仅html资源在/html/下
-		registry.addResourceHandler("/js/*.js").addResourceLocations("/WEB-INF/resources/js/"); // 仅js资源在/js/下
-		registry.addResourceHandler("/js/lib/*.js").addResourceLocations("/WEB-INF/resources/js/lib/"); // 仅js资源在/js/下
-		registry.addResourceHandler("/css/*.css").addResourceLocations("/WEB-INF/resources/css/"); // 全部资源在/css/下
-		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/resources/images/"); // 全部资源在/css/下
+//		registry.addResourceHandler("/html/*.js").addResourceLocations("/WEB-INF/resources/html/");// 仅html资源在/html/下
+//		registry.addResourceHandler("/js/*.js").addResourceLocations("/WEB-INF/resources/js/"); // 仅js资源在/js/下
+//		registry.addResourceHandler("/js/lib/*.js").addResourceLocations("/WEB-INF/resources/js/lib/"); // 仅js资源在/js/下
+//		registry.addResourceHandler("/css/*.css").addResourceLocations("/WEB-INF/resources/css/"); // 全部资源在/css/下
+//		registry.addResourceHandler("/img/**").addResourceLocations("/WEB-INF/resources/images/"); // 全部资源在/css/下
+		registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 	}
 
 	@Override
