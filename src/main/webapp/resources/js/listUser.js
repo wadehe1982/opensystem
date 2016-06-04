@@ -23,6 +23,10 @@ ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
     $(function() {
         $('#all').click(function() {
             var checked = $('td input:checked');
+            if (checked.length < 1) {
+                window.alert("please select users!");
+                return;
+            }
             var ids = checked.map(function() {
                 return ($(this).data('id'));
             }).get();
@@ -42,6 +46,7 @@ ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
                 error : function(e) {
                     alert(e);
                     button.prop('disabled', false);
+                    return;
                 }
             });
         });
