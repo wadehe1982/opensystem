@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Lists;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
 import com.xxx.opensys.repository.UserRepository;
@@ -59,7 +60,7 @@ public class UserService {
 
 	@Transactional
 	public List<UserDTO> getAllUsers() {
-		List<User> users = (List<User>) userRepository.findAll();
+		List<User> users = (List<User>) userRepository.findByActivated(true);
 		List<UserDTO> userList = new ArrayList<UserDTO>();
 		if (CollectionUtils.isEmpty(users)) {
 			return userList;
@@ -68,5 +69,22 @@ public class UserService {
 			userList.add(user.toDto());
 		}
 		return userList;
+	}
+
+	@Transactional
+	public List<UserDTO> bulkInactive(List<Integer> ids) {
+		if (CollectionUtils.isEmpty(ids)) {
+			return null;
+		}
+		List<UserDTO> list = Lists.newArrayList();
+		for(Integer id : ids){
+			User user = userRepository.findOne(id);
+			if(user != null){
+				user.setActivated(false);
+				User saved = userRepository.save(user);
+				list.add(saved.toDto());
+			}
+		}
+		return list;
 	}
 }

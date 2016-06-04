@@ -18,7 +18,7 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.xxx.opensys", entityManagerFactoryRef = "localContainerEntityManagerFactoryBean", transactionManagerRef = "annotationDrivenTransactionManager")
+@EnableJpaRepositories(basePackages = "com.xxx.opensys",entityManagerFactoryRef = "localContainerEntityManagerFactoryBean", transactionManagerRef = "annotationDrivenTransactionManager")
 public class SpringConfig {
 
 	// Hikari Data Source

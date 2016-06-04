@@ -36,11 +36,14 @@ public class User {
 	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="addressId")
 	private Address address;
+	@Column(name="activated")
+	private boolean activated;
 	
 	public User(UserDTO dto) {
 		this.address = dto.getAddress();
 		this.password = dto.getPassword();
 		this.userName = dto.getUserName();
+		this.activated = dto.isActivated();
 	}
 
 

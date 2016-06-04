@@ -11,5 +11,6 @@ import com.xxx.opensys.entity.User;
 public interface UserRepository extends CrudRepository<User, Integer> {
 
 	public List<User> getByUserName(String userName);
+	public List<User> findByActivated(boolean activated);
 	
 }

@@ -15,7 +15,7 @@ import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.service.UserService;
 
 @Controller
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
 
 	@Autowired
@@ -52,10 +52,26 @@ public class UserController {
 	}
 
 	@RequestMapping("list")
-	@ResponseBody
-	public List<UserDTO> getAll() {
+	// @ResponseBody
+	public String getAll(ModelMap map) {
 		List<UserDTO> users = userService.getAllUsers();
+		map.addAttribute("user", users.get(0));
+		map.addAttribute("userlist", users);
+		return "listUser";
+	}
+	
+	@RequestMapping("modify")
+//	@ResponseBody
+	public String modify(ModelMap map, @RequestBody UserDTO userDTO) {
+		List<UserDTO> users = userService.getAllUsers();
+		map.addAttribute("user", users.get(0));
+		map.addAttribute("userlist", users);
+		return "listUser";
+	}
+	@RequestMapping("bulk-update")
+	@ResponseBody
+	public List<UserDTO> bulkInactive(@RequestBody List<Integer> ids){
+		List<UserDTO> users = userService.bulkInactive(ids);
 		return users;
 	}
-
 }
