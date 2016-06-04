@@ -55,7 +55,6 @@ public class UserController {
 	// @ResponseBody
 	public String getAll(ModelMap map) {
 		List<UserDTO> users = userService.getAllUsers();
-		map.addAttribute("user", users.get(0));
 		map.addAttribute("userlist", users);
 		return "listUser";
 	}

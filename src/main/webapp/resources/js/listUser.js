@@ -21,6 +21,15 @@ var ssRequire = require.config({
 
 ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
     $(function() {
+        $('#CheckedAll').click(function() {
+            var checkboxs = $('td input:checkbox');
+            checkboxs.prop('checked', this.checked);
+        });
+        $('td input:checkbox').click(function() {
+            var tmp = $('td input:checkbox');
+            $('#CheckedAll').prop('checked', tmp.length == tmp.filter(':checked').length);
+        });
+
         $('#all').click(function() {
             var checked = $('td input:checked');
             if (checked.length < 1) {

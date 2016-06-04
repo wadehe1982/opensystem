@@ -1,15 +1,16 @@
 {{#partial "head"}}
-    <link href="/opensys/resources/css/AdminLTE.css" rel="stylesheet" type="text/css"/>
-    <link href="/opensys/resources/css/user.css" rel="stylesheet" type="text/css"/>
-{{/partial}}
-
-{{#partial "content"}}
+<link href="/opensys/resources/css/AdminLTE.css" rel="stylesheet"
+	type="text/css" />
+<link href="/opensys/resources/css/user.css" rel="stylesheet"
+	type="text/css" />
+{{/partial}} {{#partial "content"}}
 <div id="box">
-<input type="button" id="all" value="submit all">
+	<input type="button" id="all" value="submit all"><input
+		type="checkbox" id="CheckedAll" />Select/Unselect All
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-			    <th rowspan="2">selected</th>
+				<th rowspan="2">selected</th>
 				<th rowspan="2">userName</th>
 				<th rowspan="2">address1</th>
 				<th rowspan="2">address2</th>
@@ -18,8 +19,8 @@
 		</thead>
 		<tbody class="transitionTableBody">
 			{{#each userlist}}
-			<tr class="transitionDetailLink" >
-			    <td><input type="checkbox" data-id="{{id}}"></td>
+			<tr class="transitionDetailLink">
+				<td><input type="checkbox" data-id="{{id}}"></td>
 				<td>{{userName}}</td>
 				<td>{{address.address1}}</td>
 				<td>{{address.address2}}</td>
@@ -29,9 +30,7 @@
 		</tbody>
 	</table>
 </div>
-{{/partial}} 
-
-{{#partial "jsEntry"}}
+{{/partial}} {{#partial "jsEntry"}}
 <script src="/opensys/resources/js/lib/require-2.2.0.js"></script>
 <script src="/opensys/resources/js/listUser.js"></script>
 {{/partial}} {{> templates/simpleLayout}}
