@@ -14,6 +14,9 @@ import com.github.jknack.handlebars.springmvc.HandlebarsViewResolver;
 import com.xxx.opensys.intercepter.AuthenticationIntercepter;
 
 @Configuration
+//Note: this will import DelegatingWebMvcConfiguration, which extends WebMvcConfigurationSupport
+//and WebMvcConfigurationSupport will register RequestMappingHandlerMapping and RequestMappingHandlerAdapter
+//thus, we do not need register RequestMappingHandlerMapping and RequestMappingHandlerAdapter
 @EnableWebMvc
 @ComponentScan("com.xxx.opensys")
 public class MvcConfig extends WebMvcConfigurerAdapter {

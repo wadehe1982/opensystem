@@ -39,7 +39,10 @@ ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
             var ids = checked.map(function() {
                 return ($(this).data('id'));
             }).get();
-            console.log(ids);
+            var tmpIds = checked.map(function() {
+                return ($(this).data('id'));
+            }).get().join(',');
+            console.log(tmpIds);
             var button = $('#all');
             button.prop('disabled', true);
             $.ajax({
