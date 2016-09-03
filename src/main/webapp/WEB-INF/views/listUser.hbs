@@ -1,36 +1,98 @@
 {{#partial "head"}}
-<link href="/opensys/resources/css/AdminLTE.css" rel="stylesheet"
+<link href="/opensystem/resources/css/user.css" rel="stylesheet"
 	type="text/css" />
-<link href="/opensys/resources/css/user.css" rel="stylesheet"
-	type="text/css" />
-{{/partial}} {{#partial "content"}}
-<div id="box">
-	<input type="button" id="all" value="submit all"><input
-		type="checkbox" id="CheckedAll" />Select/Unselect All
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th rowspan="2">selected</th>
-				<th rowspan="2">userName</th>
-				<th rowspan="2">address1</th>
-				<th rowspan="2">address2</th>
-				<th rowspan="2">zipcode</th>
-			</tr>
-		</thead>
-		<tbody class="transitionTableBody">
-			{{#each userlist}}
-			<tr class="transitionDetailLink">
-				<td><input type="checkbox" data-id="{{id}}"></td>
-				<td>{{userName}}</td>
-				<td>{{address.address1}}</td>
-				<td>{{address.address2}}</td>
-				<td>{{address.zipcode}}</td>
-			</tr>
+{{/partial}} {{#partial "page_header"}} User List {{/partial}}
+{{#partial "header_description"}} List All Activated Users {{/partial}}
+
+{{#partial "content"}}
+
+<div class="box">
+	<div class="box-header">
+		<h3 class="box-title">Hover Data Table</h3>
+	</div>
+	<!-- /.box-header -->
+	<div class="box-body">
+		<div class="form-group">
+			<div class="checkbox">
+				<input type="button" id="all" value="Inactive"> <label>
+					<input type="checkbox" id="CheckedAll"> Select/Unselect All
+				</label>
+			</div>
+
+		</div>
+		<div id="example2_wrapper"
+			class="dataTables_wrapper form-inline dt-bootstrap">
+			<div class="row">
+				<div class="col-sm-6"></div>
+				<div class="col-sm-6"></div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<table id="example2"
+						class="table table-bordered table-hover dataTable" role="grid"
+						aria-describedby="example2_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting_asc" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1" aria-sort="ascending"
+									aria-label="Selected: activate to sort column descending">Selected</th>
+								<th class="sorting" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1"
+									aria-label="UserName: activate to sort column ascending">ID</th>
+								<th class="sorting" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1"
+									aria-label="UserName: activate to sort column ascending">UserName</th>
+								<th class="sorting" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1"
+									aria-label="Address1: activate to sort column ascending">Address1</th>
+								<th class="sorting" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1"
+									aria-label="Address2: activate to sort column ascending">Address2</th>
+								<th class="sorting" tabindex="0" aria-controls="example2"
+									rowspan="1" colspan="1"
+									aria-label="ZipCode: activate to sort column ascending">ZipCode</th>
+							</tr>
+						</thead>
+						<tbody>
+							{{#each page}}
+							<tr role="row" class="odd">
+								<td><input type="checkbox" data-id="{{id}}"></td>
+								<td>{{id}}</td>
+								<td>{{userName}}</td>
+								<td>{{address.address1}}</td>
+								<td>{{address.address2}}</td>
+								<td>{{address.zipcode}}</td>
+							</tr>
+							{{/each}}
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<!-- /.box-body -->
+
+</div>
+<div class="row center-block text-center">
+	<nav>
+		<ul class="pagination pagination-lg" id="pagination">
+		    {{#if showPrevious}}
+			<li id="previous" data-page-index="{{currentIndex}}" ><a href="#" aria-label="Previous"> <span
+					aria-hidden="true">&laquo;</span>
+			</a></li>
+			 {{/if}}
+			{{#each pages}}
+			<li data-page-index="{{this}}" data-current-page={{currentIndex}} ><a href="{{this}}">{{this}}</a></li> 
 			{{/each}}
-		</tbody>
-	</table>
+			{{#if showNext}}
+			<li id="next" data-page-index="{{currentIndex}}"><a href="#" aria-label="Next" > <span aria-hidden="true">&raquo;</span>
+			</a></li>
+			{{/if}}
+		</ul>
+	</nav>
 </div>
 {{/partial}} {{#partial "jsEntry"}}
-<script src="/opensys/resources/js/lib/require-2.2.0.js"></script>
-<script src="/opensys/resources/js/listUser.js"></script>
-{{/partial}} {{> templates/simpleLayout}}
+<script src="/opensystem/resources/js/lib/require-2.2.0.js"></script>
+<script src="/opensystem/resources/js/listUser.js"></script>
+{{/partial}} {{> templates/layout/commonLayout}}

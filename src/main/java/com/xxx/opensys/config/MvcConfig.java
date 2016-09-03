@@ -3,6 +3,7 @@ package com.xxx.opensys.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -19,6 +20,7 @@ import com.xxx.opensys.intercepter.AuthenticationIntercepter;
 //thus, we do not need register RequestMappingHandlerMapping and RequestMappingHandlerAdapter
 @EnableWebMvc
 @ComponentScan("com.xxx.opensys")
+@EnableSpringDataWebSupport
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Bean

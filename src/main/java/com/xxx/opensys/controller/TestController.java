@@ -25,5 +25,27 @@ public class TestController {
 	public String test() {
 		return "testjs";
 	}
+	
+	@RequestMapping("test1")
+	public String test1() {
+		return "test1";
+	}
+	@RequestMapping("test2")
+	public String test2() {
+		return "test2";
+	}
+	@RequestMapping("test-home")
+	public String testHome() {
+		return "test-home";
+	}
+	@RequestMapping("test-profile")
+	public String testProfile() {
+		return "test-profile";
+	}
+	
+	@RequestMapping("adminLTE")
+	public String testAdminLTE() {
+		return "testAdminLTE";
+	}
 
 }

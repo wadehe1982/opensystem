@@ -10,7 +10,7 @@ import com.xxx.opensys.entity.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Integer> {
 
-	public List<User> getByUserName(String userName);
+	public List<User> getByUserNameAndActivated(String userName, boolean activated);
 	public List<User> findByActivated(boolean activated);
 	
 }

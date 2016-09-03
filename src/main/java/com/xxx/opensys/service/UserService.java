@@ -5,12 +5,15 @@ import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
+import com.xxx.opensys.repository.PageUserRepository;
 import com.xxx.opensys.repository.UserRepository;
 
 @Service
@@ -19,18 +22,32 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	@Autowired
+	private PageUserRepository pageUserRepository;
+
+	private static final Integer PAGE_SIZE = 3;
+
 	@Transactional
 	public List<UserDTO> getByUserName(String userName) {
-		List<UserDTO> dtoList = new ArrayList<UserDTO>();
-		List<User> list = userRepository.getByUserName(userName);
-
+		List<User> list = userRepository.getByUserNameAndActivated(userName, true);
+		List<UserDTO> users = Lists.newArrayList();
 		if (CollectionUtils.isEmpty(list)) {
-			return dtoList;
+			return users;
 		}
 		for (User user : list) {
-			dtoList.add(user.toDto());
+			users.add(user.toDto());
 		}
-		return dtoList;
+		return users;
+	}
+
+	@Transactional
+	public UserDTO getOneByUserName(String userName) {
+		List<User> list = userRepository.getByUserNameAndActivated(userName, true);
+
+		if (CollectionUtils.isEmpty(list)) {
+			return null;
+		}
+		return list.get(0).toDto();
 	}
 
 	@Transactional
@@ -77,14 +94,21 @@ public class UserService {
 			return null;
 		}
 		List<UserDTO> list = Lists.newArrayList();
-		for(Integer id : ids){
+		for (Integer id : ids) {
 			User user = userRepository.findOne(id);
-			if(user != null){
+			if (user != null) {
 				user.setActivated(false);
 				User saved = userRepository.save(user);
 				list.add(saved.toDto());
 			}
 		}
 		return list;
+	}
+
+	@Transactional
+	public Page<User> getAll(Integer pageNumber) {
+		PageRequest pageRequest = new PageRequest(pageNumber - 1, PAGE_SIZE);
+		Page<User> page = pageUserRepository.findAll(pageRequest);
+		return page;
 	}
 }
