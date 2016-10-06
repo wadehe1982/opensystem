@@ -24,4 +24,8 @@ public class IndexController {
 	public String index3() {
 		return "index/index3";
 	}
+	@RequestMapping("index4")
+	public String index4() {
+		return "index/index4";
+	}
 }

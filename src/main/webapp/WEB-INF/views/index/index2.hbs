@@ -92,20 +92,19 @@
 		</div>
 </div>
 
-
-
 	
 </div>
 {{/partial}}
 {{#partial "jsEntry"}}
 <script>
-  $('#myButton').on('click', function () {
-    var $btn = $(this).button('loading')
-    // business logic...
+ $(function(){
+	$('#myButton').on('click', function () {
+    var btn = $(this).button('loading');
     console.log("start");
-    setTimeout(function(){$btn.button('reset')},2000);
+    setTimeout(function(){btn.button('reset')},2000);
     console.log("end");
   })
+ })
 </script>
 {{/partial}}
  {{> templates/layout/commonLayout}}
