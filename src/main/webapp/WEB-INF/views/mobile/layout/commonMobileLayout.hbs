@@ -1,0 +1,30 @@
+<html lang="zh">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta name="format-detection" content="telephone=no">
+        <title>我的应用</title> 
+        {{> mobile/layout/common/style}}
+<style type="text/css">
+
+</style>
+{{#block "head"}}{{/block}}
+
+    </head>
+    <body onload="loaded()">
+        <div id="wrapper" class="container">
+
+            {{#block "header"}}{{/block}}
+
+            <div id="wrap">
+
+                {{#block "contents"}}{{/block}}
+
+                {{#block "footer"}}{{/block}}
+            </div>
+        </div>
+
+        {{> mobile/layout/common/script}}
+        {{#block "jsEntry"}}{{/block}}
+    </body>
+</html>

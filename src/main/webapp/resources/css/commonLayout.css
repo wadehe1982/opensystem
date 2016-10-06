@@ -82,20 +82,7 @@ header#header {
 /*</editor-folder>*/
 
 /*<editor-folder desc="Common styles">*/
-.row {
 
-}
-
-.row:before {
-    display: table;
-    content: " ";
-}
-
-.row:after {
-    clear: both;
-    display: table;
-    content: " ";
-}
 
 p.no-margin {
     margin: 0 0 0;

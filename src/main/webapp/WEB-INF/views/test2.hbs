@@ -1,2 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<style type="text/css">
+*{
+box-sizing: border-box;
+}
+.box2 {
+	display: inline-block;
+	vertical-align: middle;
+	height: 200px;
+	width: 400px;
+	margin-left: 5px;
+	border: dashed;
+}
 
-{{> templates/layout/commonLayout}}
+.box3 {
+	float: left;
+	margin-left: 10px;
+	height: 100px;
+	width: 300px;
+	border: solid;
+}
+
+.sub-box {
+	margin-left: 15px;
+	margin-top: 15px
+}
+
+.elem {
+	position: relative;
+	border: solid #6AC5AC 3px;
+}
+
+.elem-green {
+	border: solid #FDC72F;
+}
+
+.container {
+	position: relative;
+	height: 500px;
+}
+
+nav.elem {
+	position: absolute;
+	left: 0px;
+	width: 200px;
+}
+
+.elem-red {
+	border: solid #D64078 3px;
+}
+</style>
+</head>
+<body>
+	<div class="container elem">
+		<nav class="elem elem-red">
+			<ul>
+				<li><a href="position-example.html">Home</a></li>
+				<li><a href="position-example.html">Taco Menu</a></li>
+				<li><a href="position-example.html">Draft List</a></li>
+				<li><a href="position-example.html">Hours</a></li>
+				<li><a href="position-example.html">Directions</a></li>
+				<li><a href="position-example.html">Contact</a></li>
+			</ul>
+		</nav>
+		<section class="elem elem-green" style="margin-left:200px">
+			<p>
+				<code>section</code>
+				section的
+				<code>margin-left</code>
+				样式确保了有足够的空间容纳
+				<code>nav</code>
+				元素。
+			</p>
+		</section>
+
+	</div>
+</body>
+
+</html>

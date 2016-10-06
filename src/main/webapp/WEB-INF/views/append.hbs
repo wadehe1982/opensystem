@@ -1,0 +1,22 @@
+<div>
+{{#if user}}
+<table>
+<thead>
+<tr>
+<td>UserName</td>
+<td>Password</td>
+<td>Activated</td>
+<td>AddressId</td>
+</tr>
+</thead>
+{{#each user}}
+<tr>
+<td>{{userName}}</td>
+<td>{{password}}</td>
+<td>{{activated}}</td>
+<td>{{address.addressId}}</td>
+</tr>
+{{/each}}
+</table>
+{{/if}}
+</div>

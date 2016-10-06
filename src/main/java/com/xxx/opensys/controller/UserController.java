@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +40,14 @@ public class UserController {
 		System.out.println(list);
 		map.addAttribute("user", list);
 		return list;
+	}
+	@RequestMapping("testAjax")
+//	@ResponseBody
+//	@CrossOrigin(origins = "*")
+	public String testAjax(ModelMap map) {
+		List<UserDTO> list = userService.getAllUsers();
+		map.addAttribute("user", list);
+		return "append";
 	}
 
 	@RequestMapping(value = "find/{id}", produces = "application/json; charset=UTF-8")

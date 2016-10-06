@@ -1,0 +1,51 @@
+{{#partial "content"}}
+<div class="box">
+	<!-- HTML to write -->
+	<a href="#" data-toggle="tooltip" title="Some tooltip text!">Hover
+		over me</a>
+		<br>
+<button type="button" class="btn btn-default" id="btn1" data-container="body" data-title="left title" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-title="top title" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on top
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-title="bottom title" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on bottom
+</button>
+
+<button type="button" class="btn btn-default" data-container="body" data-toggle="popover" data-title="right title" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>
+
+</div>
+{{/partial}} 
+{{#partial "jsEntry"}}
+<script>
+var ssRequire = require.config({
+    baseUrl : '/opensystem/resources/js/',
+    paths : {
+        'jquery' : 'lib/jquery-2.1.4',
+        'bootstrap' : 'lib/bootstrap.min'
+    },
+    shim: {
+        "bootstrap": {
+          deps: ["jquery"],
+          exports: "$.fn.popover"
+        }
+    },
+});
+
+ssRequire(['jquery','bootstrap'], function($,bootstrap) {
+    $(function(){
+    	console.log("test1");
+        $('button').popover();
+        console.log("test2");
+    })
+});
+
+</script>
+{{/partial}}
+{{> templates/layout/commonLayout}}
