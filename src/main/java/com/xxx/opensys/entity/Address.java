@@ -1,6 +1,5 @@
 package com.xxx.opensys.entity;
 
-import javax.persistence.Cacheable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,7 +16,7 @@ import lombok.Setter;
 @Table(name="address")
 @Getter
 @Setter
-@Cacheable
+//@Cacheable
 public class Address {
 	
 	@Id

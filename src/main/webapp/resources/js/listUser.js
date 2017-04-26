@@ -4,7 +4,7 @@
 var ssRequire = require.config({
     baseUrl : '/opensystem/resources/js/',
     paths : {
-        'jquery' : 'lib/jquery',
+        'jquery' : 'lib/jquery.min',
         'underscore' : 'lib/lodash',
         'backbone' : 'lib/backbone'
     },
@@ -19,6 +19,7 @@ var ssRequire = require.config({
     }
 });
 
+//require function: load dependent modules but DO NOT create module.
 ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
     $(function() {
         $('#CheckedAll').click(function() {

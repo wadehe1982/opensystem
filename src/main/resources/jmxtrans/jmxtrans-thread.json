@@ -1,0 +1,9 @@
+{
+    "queries": [
+        {
+            "objectName": "com.coupang.thread.pool:type=ThreadPool,name=*",
+            "resultAlias": "thread.pool.%name%",
+            "attributes": ["ActiveWorker", "CompletedTaskCount", "QueueSize", "TotalWorker"]
+        }
+    ]
+}

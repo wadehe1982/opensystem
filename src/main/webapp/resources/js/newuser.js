@@ -2,11 +2,12 @@
  *
  */
 var ssRequire = require.config({
-    baseUrl : '/resources/js/',
+    baseUrl : '/opensystem/resources/js/',
     paths : {
-        'jquery' : 'lib/jquery',
+        'jquery' : 'lib/jquery-2.1.4',
         'underscore' : 'lib/underscore',
-        'backbone' : 'lib/backbone'
+        'backbone' : 'lib/backbone',
+        'hello' : 'common/hello'
     },
     shim : {
         'underscore' : {
@@ -19,8 +20,15 @@ var ssRequire = require.config({
     }
 });
 
-ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
+ssRequire(['jquery', 'underscore', 'backbone', 'hello'], function($, _, backbone, hello) {
     $(function() {
+
+        $("button#add").click(function() {
+            var html = "<button class='alert'>Alert!</button>";
+            $('#container').parent().append(html);
+        });
+   
+
         $('#b').click(function() {
             var userName = $('#username').val();
             var password = $('#password').val();
@@ -51,6 +59,7 @@ ssRequire(['jquery', 'underscore', 'backbone'], function($, _, backbone) {
                 success : function(result) {
                     alert("success" + result);
                     button.prop('disabled', false);
+                    window.location = "new";
                 },
                 error : function(e) {
                     alert(e);

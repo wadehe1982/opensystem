@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="">
+
+</script>
+</head>
+<body>
+
+<form action="">
+<select id="test">
+<option value="1" selected="selected">xxx</option>
+<option value="2">yyy</option>
+<option value="3">zzz</option>
+</select>
+</form>
+
+<script type="text/javascript">
+
+$(function(){
+	$('#test').change(function(){
+		if($('#test option:selected').val() == '2'){
+			alert("xx");
+		}else{
+			console.log("vvv");
+		}
+	});
+	
+})
+</script>
+
+</body>
+</html>

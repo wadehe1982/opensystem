@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.common.collect.Lists;
+import com.xxx.opensys.authentication.UserInfo;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
 import com.xxx.opensys.service.UserService;
@@ -24,7 +24,7 @@ import com.xxx.opensys.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("user")
 @Slf4j
 public class UserController {
 
@@ -52,6 +52,7 @@ public class UserController {
 
 	@RequestMapping(value = "find/{id}", produces = "application/json; charset=UTF-8")
 	@ResponseBody
+	
 	public UserDTO test1(@PathVariable Integer id) {
 		UserDTO dto = userService.getById(id);
 		return dto;
@@ -71,8 +72,10 @@ public class UserController {
 
 	@RequestMapping("list")
 	// @ResponseBody
-	public String getAll(ModelMap map) {
+	public String getAll(ModelMap map, HttpServletRequest request, UserInfo user) {
+		
 		List<UserDTO> users = userService.getAllUsers();
+		System.out.println(request.getSession().getAttribute("test"));
 		map.addAttribute("userlist", users);
 		return "listUser";
 	}
@@ -153,5 +156,12 @@ public class UserController {
 		log.info("userName is: {}", userName);
 		UserDTO user = userService.getOneByUserName(userName);
 		return user;
+	}
+	
+	@RequestMapping("update/{id}/{password}")
+	@ResponseBody
+	public UserDTO updatePassword(@PathVariable(value="id") Integer id, @PathVariable(value="password") String password){
+		User user = userService.getEntityById(id);
+		return userService.updatePassword(user, password);
 	}
 }

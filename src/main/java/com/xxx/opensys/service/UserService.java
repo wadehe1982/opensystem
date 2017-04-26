@@ -2,22 +2,35 @@ package com.xxx.opensys.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
+import com.google.common.cache.CacheLoader;
 import com.google.common.collect.Lists;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
 import com.xxx.opensys.repository.PageUserRepository;
 import com.xxx.opensys.repository.UserRepository;
 
+import javax.annotation.PostConstruct;
+
+@SuppressWarnings("restriction")
 @Service
 public class UserService {
+	
+//	private Cache<String, UserDTO> userCache;
+	
+//	@Autowired
+//	private CacheLoader<? super String, UserDTO> userCacheLoader;
 
 	@Autowired
 	private UserRepository userRepository;
@@ -26,7 +39,17 @@ public class UserService {
 	private PageUserRepository pageUserRepository;
 
 	private static final Integer PAGE_SIZE = 3;
-
+	/*
+	@PostConstruct
+	public void init(){
+		long duration = 2L;
+		
+		userCache= CacheBuilder.newBuilder()
+				.expireAfterAccess(duration , TimeUnit.HOURS)
+				.maximumSize(1000000000)
+				.build(userCacheLoader);
+	}
+*/
 	@Transactional
 	public List<UserDTO> getByUserName(String userName) {
 		List<User> list = userRepository.getByUserNameAndActivated(userName, true);
@@ -50,7 +73,8 @@ public class UserService {
 		return list.get(0).toDto();
 	}
 
-	@Transactional
+	@Transactional(readOnly=true)
+//	@Cacheable(value = "user", key = "#id")
 	public UserDTO getById(Integer id) {
 		User user = userRepository.findOne(id);
 		System.out.println(user);
@@ -61,6 +85,14 @@ public class UserService {
 			return user.toDto();
 		}
 		return null;
+	}
+	
+	@Transactional(readOnly=true)
+//	@Cacheable(value = "user", key = "#id")
+	public User getEntityById(Integer id) {
+		User user = userRepository.findOne(id);
+		System.out.println(user);
+		return user;
 	}
 
 	@Transactional
@@ -110,5 +142,15 @@ public class UserService {
 		PageRequest pageRequest = new PageRequest(pageNumber - 1, PAGE_SIZE);
 		Page<User> page = pageUserRepository.findAll(pageRequest);
 		return page;
+	}
+	@Transactional(readOnly=false)
+	public UserDTO updatePassword(User user, String password){
+	    
+		if (user == null) {
+			return null;
+		}
+		user.setPassword(password);
+		User saved = userRepository.save(user);
+		return saved.toDto();
 	}
 }

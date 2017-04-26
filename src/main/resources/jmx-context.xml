@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jmxtrans="http://www.jmxtrans.org/schema/embedded"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.jmxtrans.org/schema/embedded http://www.jmxtrans.org/schema/embedded/jmxtrans-1.1.xsd">
+
+	<jmxtrans:jmxtrans ignore-configuration-not-found="true">
+		<jmxtrans:configuration>classpath:jmxtrans/jmxtrans-jvm-sun-hotspot.json</jmxtrans:configuration>
+		<jmxtrans:configuration>classpath:jmxtrans/jmxtrans-jdbc.json</jmxtrans:configuration>
+		<jmxtrans:configuration>classpath:jmxtrans/jmxtrans-cache.json</jmxtrans:configuration>
+		<jmxtrans:configuration>classpath:jmxtrans/jmxtrans-tomcat.json</jmxtrans:configuration>
+	</jmxtrans:jmxtrans>
+</beans>

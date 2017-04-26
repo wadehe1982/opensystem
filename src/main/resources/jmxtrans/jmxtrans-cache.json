@@ -1,0 +1,67 @@
+{
+    "queries": [
+        {
+            "objectName": "com.google.common.cache:type=Cache,name=*",
+            "resultAlias": "cache.guava.%name%",
+            "attributes": [
+                "RequestCount",
+                "HitCount",
+                "HitRate",
+                "MissCount",
+                "MissRate",
+                "LoadCount",
+                "LoadSuccessCount",
+                "LoadExceptionCount",
+                "LoadExceptionRate",
+                "TotalLoadTime",
+                "AverageLoadPenalty",
+                "EvictionCount",
+                "Size"
+            ]
+        },
+        {
+            "objectName": "metrics:name=\"[MEM] Request Rate: All\"",
+            "resultAlias": "memcached.request",
+            "attributes": [
+                "Count",
+                "OneMinuteRate",
+                "FiveMinuteRate",
+                "FifteenMinuteRate",
+                "MeanRate"
+            ]
+        },
+        {
+            "objectName": "metrics:name=\"[MEM] Response Rate: All (Failure + Success + Retry)\"",
+            "resultAlias": "memcached.response",
+            "attributes": [
+                "Count",
+                "OneMinuteRate",
+                "FiveMinuteRate",
+                "FifteenMinuteRate",
+                "MeanRate"
+            ]
+        },
+        {
+            "objectName": "metrics:name=\"[MEM] Response Rate: Failure\"",
+            "resultAlias": "memcached.failure",
+            "attributes": [
+                "Count",
+                "OneMinuteRate",
+                "FiveMinuteRate",
+                "FifteenMinuteRate",
+                "MeanRate"
+            ]
+        },
+        {
+            "objectName": "metrics:name=\"[MEM] Response Rate: Success\"",
+            "resultAlias": "memcached.success",
+            "attributes": [
+                "Count",
+                "OneMinuteRate",
+                "FiveMinuteRate",
+                "FifteenMinuteRate",
+                "MeanRate"
+            ]
+        }
+    ]
+}

@@ -21,7 +21,7 @@ import lombok.Setter;
 @Table(name = "user")
 @Getter
 @Setter
-@Cacheable
+//@Cacheable
 public class User {
 
 	@Id
@@ -33,9 +33,10 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne()
 	@JoinColumn(name="addressId")
 	private Address address;
+	
 	@Column(name="activated")
 	private boolean activated;
 	
@@ -44,6 +45,7 @@ public class User {
 		this.password = dto.getPassword();
 		this.userName = dto.getUserName();
 		this.activated = dto.isActivated();
+		this.id = dto.getId();
 	}
 
 

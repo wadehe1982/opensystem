@@ -1,0 +1,11 @@
+{
+    "queries": [
+        {
+            "objectName": "redis.client.jedis:type=CoupangSentinelPool,name=*",
+            "resultAlias": "redis.%name%",
+            "attributes": [
+                "MaxBorrowWaitTimeMillis", "MeanBorrowWaitTimeMillis", "NumActive", "NumIdle", "NumWaiters", "CreatedCount", "DestroyedCount"
+            ]
+        }
+    ]
+}

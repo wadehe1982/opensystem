@@ -1,0 +1,24 @@
+{
+    "queries": [
+        {
+            "objectName": "org.apache.commons.dbcp2:type=DBCP2,name=*,connectionpool=connections",
+            "resultAlias": "datasource.%name%",
+            "attributes": [
+                "MaxBorrowWaitTimeMillis",
+                "MeanBorrowWaitTimeMillis",
+                "NumActive",
+                "NumIdle"
+            ]
+        },
+        {
+            "objectName": "com.jolbox.bonecp:type=BoneCP-*",
+            "resultAlias": "bonecp.%type%",
+            "attributes": [
+                "ConnectionWaitTimeAvg",
+                "CumulativeConnectionWaitTime",
+                "TotalCreatedConnections",
+                "TotalLeased"
+            ]
+        }
+    ]
+}
