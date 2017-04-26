@@ -160,14 +160,4 @@ public class SpringConfig {
 	// EhCacheManagerFactoryBean();
 	// }
 	
-	@Bean
-//	@Conditional(value = { CustomCondition.class})
-	public UserDTO testTemplate(){
-		
-		System.out.println("create testTemplate......");
-		return new UserDTO();
-	}
-	
-
-
 }
