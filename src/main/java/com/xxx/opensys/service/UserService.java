@@ -2,28 +2,21 @@ package com.xxx.opensys.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.CacheLoader;
 import com.google.common.collect.Lists;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
 import com.xxx.opensys.repository.PageUserRepository;
 import com.xxx.opensys.repository.UserRepository;
 
-import javax.annotation.PostConstruct;
 
-@SuppressWarnings("restriction")
 @Service
 public class UserService {
 	
