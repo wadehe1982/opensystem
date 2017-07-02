@@ -1,6 +1,5 @@
 package com.xxx.opensys.entity;
 
-import javax.persistence.Cacheable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
 
 import com.xxx.opensys.dto.UserDTO;
 
@@ -33,7 +33,7 @@ public class User {
 	@Column(name="password")
 	private String password;
 	
-	@OneToOne()
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="addressId")
 	private Address address;
 	
