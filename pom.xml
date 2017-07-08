@@ -80,12 +80,12 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.0.6.Final</version>
+			<version>5.2.10.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>5.0.6.Final</version>
+			<version>5.2.10.Final</version>
 		</dependency>
 		<!-- Spring data -->
 		<dependency>
@@ -282,6 +282,27 @@
 			<artifactId>curator-client</artifactId>
 			<version>2.11.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-kafka -->
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-kafka</artifactId>
+			<version>2.1.0.RELEASE</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-core -->
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-core</artifactId>
+			<version>1.5.12</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-metrics-event-stream -->
+		<dependency>
+			<groupId>com.netflix.hystrix</groupId>
+			<artifactId>hystrix-metrics-event-stream</artifactId>
+			<version>1.5.12</version>
+		</dependency>
+
+
+
 		<!-- https://mvnrepository.com/artifact/curator/curator -->
 		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor_2.10 
 			<dependency> <groupId>com.typesafe.akka</groupId> <artifactId>akka-actor_2.10</artifactId> 
