@@ -1,5 +1,6 @@
 package com.xxx.opensys.controller;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -61,6 +62,7 @@ public class UserController {
 	@RequestMapping(value = "save", method = RequestMethod.POST, headers = "Accept=application/json")
 	@ResponseBody()
 	public UserDTO save(@RequestBody UserDTO userDTO) {
+		userDTO.setCreatedAt(LocalDateTime.now());
 		UserDTO dto = userService.save(userDTO);
 		return dto;
 	}

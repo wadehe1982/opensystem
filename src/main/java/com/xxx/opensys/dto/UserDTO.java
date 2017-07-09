@@ -1,6 +1,7 @@
 package com.xxx.opensys.dto;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import com.xxx.opensys.entity.Address;
 
@@ -22,6 +23,7 @@ public class UserDTO implements Serializable{
 	private String password;
 	private Address address;
 	private boolean activated;
+	private LocalDateTime createdAt;
 	@Override
 	public int hashCode() {
 		final int prime = 31;

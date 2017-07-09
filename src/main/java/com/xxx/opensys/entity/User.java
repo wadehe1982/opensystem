@@ -1,5 +1,7 @@
 package com.xxx.opensys.entity;
 
+import java.time.LocalDateTime;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -40,11 +42,15 @@ public class User {
 	@Column(name="activated")
 	private boolean activated;
 	
+	@Column(name="createdAt")
+	private LocalDateTime createdAt = LocalDateTime.now();
+	
 	public User(UserDTO dto) {
 		this.address = dto.getAddress();
 		this.password = dto.getPassword();
 		this.userName = dto.getUserName();
 		this.activated = dto.isActivated();
+		this.createdAt = dto.getCreatedAt();
 		this.id = dto.getId();
 	}
 
