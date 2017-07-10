@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 
 import com.xxx.opensys.dto.UserDTO;
+import com.xxx.opensys.model.UserStatusEnum;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -45,12 +46,16 @@ public class User {
 	@Column(name="createdAt")
 	private LocalDateTime createdAt = LocalDateTime.now();
 	
+	@Column(name="status")
+	private UserStatusEnum status;
+	
 	public User(UserDTO dto) {
 		this.address = dto.getAddress();
 		this.password = dto.getPassword();
 		this.userName = dto.getUserName();
 		this.activated = dto.isActivated();
 		this.createdAt = dto.getCreatedAt();
+		this.status = dto.getStatus();
 		this.id = dto.getId();
 	}
 
@@ -61,6 +66,7 @@ public class User {
 		userDTO.setId(this.id);
 		userDTO.setPassword(this.password);
 		userDTO.setUserName(this.userName);
+		userDTO.setStatus(this.status);
 		return userDTO;
 	}
 

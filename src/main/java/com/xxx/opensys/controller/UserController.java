@@ -20,6 +20,7 @@ import com.google.common.collect.Lists;
 import com.xxx.opensys.authentication.UserInfo;
 import com.xxx.opensys.dto.UserDTO;
 import com.xxx.opensys.entity.User;
+import com.xxx.opensys.model.UserStatusEnum;
 import com.xxx.opensys.service.UserService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -63,6 +64,7 @@ public class UserController {
 	@ResponseBody()
 	public UserDTO save(@RequestBody UserDTO userDTO) {
 		userDTO.setCreatedAt(LocalDateTime.now());
+		userDTO.setStatus(UserStatusEnum.INACTIVE);
 		UserDTO dto = userService.save(userDTO);
 		return dto;
 	}
