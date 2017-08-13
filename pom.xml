@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xxx</groupId>
-	<artifactId>opensys</artifactId>
+	<artifactId>opensystem</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>opensys Maven Webapp</name>
@@ -326,6 +326,7 @@
 			<version>2.2.0</version>
 		</dependency>
 
+
 		<!-- https://mvnrepository.com/artifact/curator/curator -->
 		<!-- https://mvnrepository.com/artifact/com.typesafe.akka/akka-actor_2.10 
 			<dependency> <groupId>com.typesafe.akka</groupId> <artifactId>akka-actor_2.10</artifactId> 
@@ -338,7 +339,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>opensys</finalName>
+		<finalName>opensystem</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
